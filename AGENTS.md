@@ -158,7 +158,6 @@ Based on analysis of `app.py`, here are the code style conventions used in this 
 - Use of `gr.Blocks` for complex layouts
 - Consistent use of `elem_id` and `elem_classes` for styling
 - Examples provided in `gr.Examples` component for user guidance
-- Color scheme customization via CSS overrides (see app.py for current brown theme implementation)
 
 ### Security Considerations
 - Input validation (checking for empty prompts)
