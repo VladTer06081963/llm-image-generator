@@ -110,19 +110,27 @@ body { font-family: 'SF Pro Display', -apple-system, sans-serif; }
 #generate-btn { background: #8B4513 !important; color: white !important; border: none !important; font-size: 15px !important; padding: 12px !important; }
 #generate-btn:hover { background: #A0522D !important; }
 .status-box textarea { font-size: 13px !important; }
+/* Надписи полей (Промпт, Ширина, Высота и т.д.) */
+span.svelte-1gfkn6j, .block label > span, label > span { color: #4d370b !important; background: #4d370b !important; }
+.block > label > span { background-color: #4d370b !important; color: white !important; }
+/* Ползунки */
+.wrap.svelte-w6rprc input[type=range]::-webkit-slider-thumb { background: #4d370b !important; }
 """
 
 brown_theme = gr.themes.Soft(
-    primary_hue=gr.themes.colors.orange,
-    secondary_hue=gr.themes.colors.orange,
+    primary_hue=gr.themes.colors.stone,
+    secondary_hue=gr.themes.colors.stone,
     neutral_hue=gr.themes.colors.gray,
 ).set(
-    button_secondary_background_fill="#D2B48C",
-    button_secondary_background_fill_hover="#C4A882",
-    button_secondary_text_color="#4d370b",
+    button_primary_background_fill="#8B4513",
+    button_primary_background_fill_hover="#A0522D",
+    button_primary_text_color="white",
+    button_secondary_background_fill="#4d370b",
+    button_secondary_background_fill_hover="#3a2808",
+    button_secondary_text_color="white",
     slider_color="#4d370b",
-    block_label_text_color="#4d370b",
-    block_label_background_fill="#D2B48C",
+    block_label_text_color="white",
+    block_label_background_fill="#4d370b",
     checkbox_label_background_fill_selected="#4d370b",
     checkbox_background_color_selected="#4d370b",
     input_border_color_focus="#4d370b",
