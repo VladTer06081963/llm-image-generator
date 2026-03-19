@@ -104,22 +104,38 @@ def load_history_display():
 
 
 # ── UI ──────────────────────────────────────────────────────────────────────
-
 css = """
 body { font-family: 'SF Pro Display', -apple-system, sans-serif; }
 .container { max-width: 1200px; }
 #generate-btn { background: #8B4513 !important; color: white !important; border: none !important; font-size: 15px !important; padding: 12px !important; }
 #generate-btn:hover { background: #A0522D !important; }
 .status-box textarea { font-size: 13px !important; }
-/* Additional brown theme overrides */
-.gradio-container { background-color: #F5F5DC !important; }
-.block { border-color: #D2B48C !important; }
-label { color: #8B4513 !important; }
-.input-wrap input, .input-wrap textarea, .input-wrap select { border-color: #D2B48C !important; }
-.input-wrap input:focus, .input-wrap textarea:focus, .input-wrap select:focus { border-color: #8B4513 !important; box-shadow: 0 0 0 2px rgba(139, 69, 19, 0.2) !important; }
 """
 
-with gr.Blocks(title="Z-Image Generator", css=css, theme=gr.themes.Soft()) as demo:
+brown_theme = gr.themes.Soft(
+    primary_hue=gr.themes.colors.orange,
+    secondary_hue=gr.themes.colors.orange,
+    neutral_hue=gr.themes.colors.gray,
+).set(
+    button_primary_background_fill="#8B4513",
+    button_primary_background_fill_hover="#A0522D",
+    button_primary_text_color="white",
+    button_secondary_background_fill="#D2B48C",
+    button_secondary_background_fill_hover="#C4A882",
+    button_secondary_text_color="#3B1A08",
+    slider_color="#8B4513",
+    block_label_text_color="#8B4513",
+    block_label_background_fill="#D2B48C",
+    checkbox_label_background_fill_selected="#8B4513",
+    checkbox_background_color_selected="#8B4513",
+    input_border_color_focus="#8B4513",
+    link_text_color="#8B4513",
+    link_text_color_hover="#A0522D",
+    link_text_color_visited="#6B3410",
+    link_text_color_active="#A0522D",
+)
+
+with gr.Blocks(title="Z-Image Generator") as demo:
 
     gr.Markdown("## 🎨 Z-Image-Turbo — генератор изображений")
     gr.Markdown("MLX · Apple Silicon · локально на твоём Mac · ~130 сек на генерацию")
@@ -140,7 +156,7 @@ with gr.Blocks(title="Z-Image Generator", css=css, theme=gr.themes.Soft()) as de
 
             steps = gr.Slider(1, 20, value=9, step=1, label="Шаги (рекомендуется 9)")
 
-            seed = gr.Number(value=42, label="Seed (0 = случайный)", precision=0)
+            seed = gr.Number(value=42, label="Сид (0 = случайный)", precision=0)
 
             generate_btn = gr.Button("✦ Генерировать", elem_id="generate-btn", variant="primary")
             status = gr.Textbox(label="Статус", interactive=False, elem_classes="status-box")
@@ -180,8 +196,10 @@ with gr.Blocks(title="Z-Image Generator", css=css, theme=gr.themes.Soft()) as de
 
 if __name__ == "__main__":
     demo.launch(
-        server_name="192.168.50.250",
+        server_name="0.0.0.0",
         server_port=7860,
         share=False,
         inbrowser=True,
+        theme=brown_theme,
+        css=css,
     )
