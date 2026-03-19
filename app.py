@@ -108,9 +108,15 @@ def load_history_display():
 css = """
 body { font-family: 'SF Pro Display', -apple-system, sans-serif; }
 .container { max-width: 1200px; }
-#generate-btn { background: #1a1a1a !important; color: white !important; border: none !important; font-size: 15px !important; padding: 12px !important; }
-#generate-btn:hover { background: #333 !important; }
+#generate-btn { background: #8B4513 !important; color: white !important; border: none !important; font-size: 15px !important; padding: 12px !important; }
+#generate-btn:hover { background: #A0522D !important; }
 .status-box textarea { font-size: 13px !important; }
+/* Additional brown theme overrides */
+.gradio-container { background-color: #F5F5DC !important; }
+.block { border-color: #D2B48C !important; }
+label { color: #8B4513 !important; }
+.input-wrap input, .input-wrap textarea, .input-wrap select { border-color: #D2B48C !important; }
+.input-wrap input:focus, .input-wrap textarea:focus, .input-wrap select:focus { border-color: #8B4513 !important; box-shadow: 0 0 0 2px rgba(139, 69, 19, 0.2) !important; }
 """
 
 with gr.Blocks(title="Z-Image Generator", css=css, theme=gr.themes.Soft()) as demo:
