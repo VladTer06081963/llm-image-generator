@@ -107,38 +107,10 @@ def load_history_display():
 css = """
 body { font-family: 'SF Pro Display', -apple-system, sans-serif; }
 .container { max-width: 1200px; }
-#generate-btn { background: #8B4513 !important; color: white !important; border: none !important; font-size: 15px !important; padding: 12px !important; }
-#generate-btn:hover { background: #A0522D !important; }
+#generate-btn { background: #1a1a1a !important; color: white !important; border: none !important; font-size: 15px !important; padding: 12px !important; }
+#generate-btn:hover { background: #333 !important; }
 .status-box textarea { font-size: 13px !important; }
-/* Надписи полей (Промпт, Ширина, Высота и т.д.) */
-span.svelte-1gfkn6j, .block label > span, label > span { color: #4d370b !important; background: #4d370b !important; }
-.block > label > span { background-color: #4d370b !important; color: white !important; }
-/* Ползунки */
-.wrap.svelte-w6rprc input[type=range]::-webkit-slider-thumb { background: #4d370b !important; }
 """
-
-brown_theme = gr.themes.Soft(
-    primary_hue=gr.themes.colors.stone,
-    secondary_hue=gr.themes.colors.stone,
-    neutral_hue=gr.themes.colors.gray,
-).set(
-    button_primary_background_fill="#8B4513",
-    button_primary_background_fill_hover="#A0522D",
-    button_primary_text_color="white",
-    button_secondary_background_fill="#4d370b",
-    button_secondary_background_fill_hover="#3a2808",
-    button_secondary_text_color="white",
-    slider_color="#4d370b",
-    block_label_text_color="white",
-    block_label_background_fill="#4d370b",
-    checkbox_label_background_fill_selected="#4d370b",
-    checkbox_background_color_selected="#4d370b",
-    input_border_color_focus="#4d370b",
-    link_text_color="#4d370b",
-    link_text_color_hover="#4d370b",
-    link_text_color_visited="#4d370b",
-    link_text_color_active="#4d370b",
-)
 
 with gr.Blocks(title="Z-Image Generator") as demo:
 
@@ -205,6 +177,6 @@ if __name__ == "__main__":
         server_port=7860,
         share=False,
         inbrowser=True,
-        theme=brown_theme,
+        theme=gr.themes.Soft(),
         css=css,
     )
