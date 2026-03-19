@@ -1,0 +1,8 @@
+.DS_Store
+.venv/
+Z-Image-Turbo-MLX/
+__pycache__/
+upload.py
+.idea/
+lora
+res.png
