@@ -1,0 +1,6 @@
+{
+    "python.defaultInterpreterPath": "/Users/vladteresena/Desktop/lesson/llm/qwen-env/bin/python",
+    "python.analysis.extraPaths": [
+        "/Users/vladteresena/Desktop/lesson/llm/qwen-env/lib/python3.13/site-packages"
+    ]
+}
